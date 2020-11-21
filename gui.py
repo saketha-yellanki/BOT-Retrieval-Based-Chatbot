@@ -84,7 +84,7 @@ class ChatInterface(Frame):
         help_option = Menu(menu, tearoff=0)
         menu.add_cascade(label="Help", menu=help_option)
         #help_option.add_command(label="Features", command=self.features_msg)
-        help_option.add_command(label="About PyBot", command=self.msg)
+        help_option.add_command(label="About Bot", command=self.msg)
         help_option.add_command(label="Develpoers", command=self.about)
 
         self.text_frame = Frame(self.master, bd=6)

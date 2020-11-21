@@ -43,7 +43,7 @@ train_x = data['train_x']
 train_y = data['train_y']
 
 import json
-with open('intents.json') as json_data:
+with open('intents.json',encoding='utf-8') as json_data:
     intents = json.load(json_data)
 
 #print(intents)
@@ -109,7 +109,7 @@ import webbrowser
 
 
 def open_web():
-    webbrowser.open('http://google.com')
+    webbrowser.open('https://ksrtc.in/')
 #   url = 'https://www.google.com/'
 #   display(Javascript('window.open("{url}");'.format(url=url)))
 
@@ -120,11 +120,11 @@ threshold = 0.70
 def classify(sentence):
     # calculating probabilities from the model
     results = model.predict([bag_of_words(sentence, words)])[0]
-    print("class results:",results)
+    #print("class results:",results)
 
     # filtering out predictions below a threshold
     results = [[i,r] for i,r in enumerate(results) if r>threshold]
-    print("resutls:",results)
+    #print("resutls:",results)
 
     # sorting by probability in descending order
     results.sort(key=lambda x: x[1], reverse=True)

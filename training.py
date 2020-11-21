@@ -50,7 +50,7 @@ The dataset on which the model is going to be trained is in JSON format. The obj
 3. Responses - A set of responses from which a bot can select and give the user
 """
 
-with open('intents.json') as json_data:
+with open('intents.json',encoding='utf-8') as json_data:
     intents = json.load(json_data)
 print(intents)
 
