@@ -49,10 +49,15 @@ with open('intents.json',encoding='utf-8') as json_data:
 #print(intents)
 
 net = tflearn.input_data(shape=[None, len(train_x[0])])
-net = tflearn.fully_connected(net, 8)
-net = tflearn.fully_connected(net, 8)
+hidden_layers = 2
+for i in range(hidden_layers):
+  net = tflearn.fully_connected(net, 8)
 net = tflearn.fully_connected(net, len(train_y[0]), activation='softmax')
 net = tflearn.regression(net)
+# net = tflearn.fully_connected(net, 8)
+# net = tflearn.fully_connected(net, 8)
+# net = tflearn.fully_connected(net, len(train_y[0]), activation='softmax')
+# net = tflearn.regression(net)
 
 # Define model and setup tensorboard
 model = tflearn.DNN(net,  tensorboard_verbose=0, tensorboard_dir='tflearn_logs')
@@ -109,7 +114,7 @@ import webbrowser
 
 
 def open_web():
-    webbrowser.open('https://ksrtc.in/')
+    webbrowser.open('https://transport.karnataka.gov.in/english')
 #   url = 'https://www.google.com/'
 #   display(Javascript('window.open("{url}");'.format(url=url)))
 
